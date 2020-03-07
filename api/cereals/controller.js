@@ -34,5 +34,6 @@ const setCereals = (req, res) => {
 
 module.exports = {
   getCereals: getCereals,
-  getImage: getImage
+  getImage: getImage,
+  setCereals: setCereals
 };
