@@ -24,7 +24,8 @@ const getCereals = (req, res) => {
 
 const setCereals = (req, res) => {
   if (req) {
-    console.log(req.params);
+    console.log(Number(req.param.tur));
+    console.log((Number(req.param.tur) / 4095));
     cereals[0].quantity = (Number(req.param.tur) / 4095) * 100;
     cereals[1].quantity = (Number(req.param.masoor) / 4095) * 100;
     return res.status(200).json(cereals);
