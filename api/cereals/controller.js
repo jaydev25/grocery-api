@@ -24,11 +24,11 @@ const getCereals = (req, res) => {
 
 const setCereals = (req, res) => {
   if (req) {
-    console.log(req.param.tur);
-    console.log(parseInt(req.param.tur));
-    console.log((parseInt(req.param.tur) / 4095));
-    cereals[0].quantity = (parseInt(req.param.tur) / 4095) * 100;
-    cereals[1].quantity = (parseInt(req.param.masoor) / 4095) * 100;
+    console.log(req.params.tur);
+    console.log(parseInt(req.params.tur));
+    console.log((parseInt(req.params.tur) / 4095));
+    cereals[0].quantity = (parseInt(req.params.tur) / 4095) * 100;
+    cereals[1].quantity = (parseInt(req.params.masoor) / 4095) * 100;
     return res.status(200).json(cereals);
   } else {
     return cereals;
