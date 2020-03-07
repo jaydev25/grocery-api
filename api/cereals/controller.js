@@ -2,8 +2,17 @@ const cereals = [{
   id: 1,
   name: 'Tur',
   quantity: 50,
-  image: ''
-},]
+  image: 'tur'
+}, {
+  id: 2,
+  name: 'Masoor',
+  quantity: 70,
+  image: 'masoor'
+}]
+
+const getImage = (req, res) => {
+    res.sendFile('../../assets/' + req.query.img + '.png', { root: __dirname });
+};
 
 const getCereals = (req, res) => {
   if (req) {
@@ -14,5 +23,6 @@ const getCereals = (req, res) => {
 }
 
 module.exports = {
-  getCereals: getCereals
+  getCereals: getCereals,
+  getImage: getImage
 };
