@@ -25,7 +25,7 @@ const getCereals = (req, res) => {
 
 const setCereals = (req, res) => {
   if (req) {
-    console.log(req);
+    console.log(req.params);
     return res.status(200).json(cereals);
   } else {
     return cereals;
