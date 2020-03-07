@@ -9,9 +9,10 @@ const cereals = [{
   quantity: 70,
   image: 'masoor'
 }]
+var path = require('path');
 
 const getImage = (req, res) => {
-    res.sendFile('../../assets/' + req.query.img + '.png', { root: __dirname });
+    res.sendFile(path.resolve('../../assets/' + req.query.img + '.png');
 };
 
 const getCereals = (req, res) => {
