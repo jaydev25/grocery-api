@@ -12,7 +12,7 @@ const cereals = [{
 var path = require('path');
 
 const getImage = (req, res) => {
-    res.sendFile(path.resolve('../../assets/' + req.query.img + '.png');
+  res.sendFile(path.resolve('assets/' + req.params.img + '.png'));
 };
 
 const getCereals = (req, res) => {
