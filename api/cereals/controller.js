@@ -3,11 +3,6 @@ const cereals = [{
   name: 'Tur',
   quantity: 50,
   image: 'tur'
-}, {
-  id: 2,
-  name: 'Masoor',
-  quantity: 70,
-  image: 'masoor'
 }]
 var path = require('path');
 const getImage = (req, res) => {
@@ -24,11 +19,41 @@ const getCereals = (req, res) => {
 
 const setCereals = (req, res) => {
   if (req) {
-    console.log(req.params.tur);
-    console.log(parseInt(req.params.tur));
-    console.log((parseInt(req.params.tur) / 4095));
+    console.log(req.params);
     cereals[0].quantity = (parseInt(req.params.tur) / 4095) * 100;
     cereals[1].quantity = (parseInt(req.params.masoor) / 4095) * 100;
+    return res.status(200).json(cereals);
+  } else {
+    return cereals;
+  }
+}
+
+const setCerealName = (req, res) => {
+  if (req) {
+    cereals[req.params.id].name = req.params.name;
+    return res.status(200).json(cereals);
+  } else {
+    return cereals;
+  }
+}
+
+const addCereal = (req, res) => {
+  if (req) {
+    cereals.puch({
+      id: cereals.length - 1,
+      name: req.params.name,
+      quantity: 0,
+      image: req.params.name
+    });
+    return res.status(200).json(cereals);
+  } else {
+    return cereals;
+  }
+}
+
+const removeCereal = (req, res) => {
+  if (req) {
+    cereals.splice(req.params.id, 1);
     return res.status(200).json(cereals);
   } else {
     return cereals;
@@ -38,5 +63,8 @@ const setCereals = (req, res) => {
 module.exports = {
   getCereals: getCereals,
   getImage: getImage,
-  setCereals: setCereals
+  setCereals: setCereals,
+  setCerealName: setCerealName,
+  addCereal: addCereal,
+  removeCereal: removeCereal
 };
